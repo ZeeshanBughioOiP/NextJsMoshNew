@@ -102,12 +102,22 @@ body {
 
 .box-careers {
   text-align: center;
-  background: #421008;
+  background: #fff;
   padding: 50px;
   border-radius: 15px;
   margin-bottom: 25px;
+  transition: 0.3s ease-in-out;
+  box-shadow: -8px 8px 0px 0px rgb(234 88 12 / 1);
+}
+
+.box-careers:hover {
+  box-shadow: 8px 8px 0px 0px rgb(234 88 12 / 1);
 }
 
 a {
   display: inline-block;
+}
+
+.text-orange-600 {
+  color: #fff !important;
 }
