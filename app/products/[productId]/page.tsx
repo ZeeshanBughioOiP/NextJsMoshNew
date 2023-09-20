@@ -24,9 +24,13 @@ export default async function ProductDetails({ params: { productId } }: Params) 
     const productsData: Promise<Products> = SingleProduct(productId)
     const products: Products = await productsData
 
+    const remainingItems = products.rating.count;
+    const totalItems = 1000;
+    const progress = (remainingItems / totalItems) * 1000;
+
     return (
         <div className="container mx-auto">
-            <Suspense fallback={<h2>Loading...</h2>}>
+            <Suspense fallback={<div className="text-center"><progress className="progress w-56"></progress></div>}>
                 <div className="flex items-center">
                     <div className="imageportion w-2/4">
                         <Image src={products.image} width={500} height={500} alt={products.title} />
@@ -40,7 +44,8 @@ export default async function ProductDetails({ params: { productId } }: Params) 
                             <span>{products.rating.rate}/5</span>
                         </div>
                         <div className="items-remaining">
-                            <h5>Items Remaining: <span>{products.rating.count}</span></h5>
+                            <h5>Items Remaining: <span>{products.rating.count}/1000</span></h5>
+                            <progress className="progress progress-orange-600 w-56" value={progress} max="1000"></progress>
                         </div>
                         <button className="btn btn-secondary capitalize bg-orange-600 hover:bg-blue-700 transition-all rounded-lg">Add To Cart</button>
                     </div>

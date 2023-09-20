@@ -14,6 +14,25 @@ body {
   justify-content: center;
 }
 
+.bannerSection:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/bannergirls.jpg);
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bannerSection {
+  min-height: 80vh;
+  position: relative;
+  z-index: 1;
+}
+
 .card figure img {
   width: 100%;
   height: 350px;
@@ -56,4 +75,39 @@ body {
 
 .productdetails > * {
   margin-bottom: 0.75rem;
+}
+
+.on-top-right {
+  position: absolute;
+  max-width: 320px;
+  top: 40px;
+  right: 40px;
+}
+
+.progress-orange-600::-moz-progress-bar {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--a) / var(--tw-bg-opacity));
+}
+.progress-orange-600:indeterminate {
+  --progress-color: hsl(var(--a));
+}
+.progress-orange-600::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / 1);
+}
+
+.w-products {
+  max-width: calc(33.33% - 1rem);
+}
+
+.box-careers {
+  text-align: center;
+  background: #421008;
+  padding: 50px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+a {
+  display: inline-block;
 }

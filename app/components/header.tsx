@@ -5,7 +5,7 @@ import logoimage from '../../public/logoorange.png'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 
-const header = () => {
+const Header = () => {
     const currentRoute = usePathname();
 
     return (
@@ -41,4 +41,4 @@ const header = () => {
     )
 }
 
-export default header
+export default Header

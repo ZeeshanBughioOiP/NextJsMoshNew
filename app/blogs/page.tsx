@@ -3,14 +3,14 @@ import getAllUsers from '@/lib/getAllUsers'
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: 'Users',
+  title: 'Blogs - Thunder',
 }
 
 export default async function UsersPage() {
   const usersData: Promise<User[]> = getAllUsers()
   const users = await usersData
 
-  const content = (
+  const Content = (
     <section>
       <div className='container mx-auto'>
         <div className='rounded-lg overflow-hidden'>
@@ -26,17 +26,17 @@ export default async function UsersPage() {
             <tbody>
               {users.map(user => {
                 return (
-                  <tr className='bg-orange-600 hover:bg-blue-600 px-4 py-2 rounded-lg text-center'>
-                    <td key={user.id}>
+                  <tr key={user.id} className='bg-orange-600 hover:bg-blue-600 px-4 py-2 rounded-lg text-center'>
+                    <td>
                       <Link href={`/blogs/${user.id}`}>{user.name}</Link>
                     </td>
-                    <td key={user.id}>
+                    <td>
                       <Link href={`/blogs/${user.id}`}>{user.email}</Link>
                     </td>
-                    <td key={user.id}>
+                    <td>
                       <Link href={`/blogs/${user.id}`}>{user.address.zipcode}</Link>
                     </td>
-                    <td key={user.id}>
+                    <td>
                       <Link href={`/blogs/${user.id}`}>{user.phone}</Link>
                     </td>
                   </tr>
@@ -49,5 +49,5 @@ export default async function UsersPage() {
     </section>
   )
 
-  return content
+  return Content
 }
